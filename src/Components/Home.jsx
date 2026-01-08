@@ -1,30 +1,31 @@
-import React from 'react'
-import { ThemeToggle } from './ThemeToggle'
-import StarBackground from './StarBackground'
-import NavBar from './NavBar'
-import HeroSection from './HeroSection'
+import React from "react";
+import { ThemeToggle } from "./ThemeToggle";
+import StarBackground from "./StarBackground";
+import NavBar from "./NavBar";
+import HeroSection from "./HeroSection";
+import AboutSection from "./AboutSection";
 
 function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-    {/* Theme Toggle */}
+      {/* Theme Toggle */}
       <ThemeToggle />
 
-    {/* Background effect */}
-    <StarBackground />
+      {/* Background effect */}
+      <StarBackground />
 
-    {/* NavBar */}
-    <NavBar />
+      {/* NavBar */}
+      <NavBar />
 
-    {/* Main Content */}
-    <main>
-    <HeroSection/>
+      {/* Main Content */}
+      <main>
+        <HeroSection />
+        <AboutSection />
+      </main>
 
-    </main>
-
-    {/* Footer */}
+      {/* Footer */}
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
