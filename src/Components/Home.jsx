@@ -4,6 +4,7 @@ import StarBackground from "./StarBackground";
 import NavBar from "./NavBar";
 import HeroSection from "./HeroSection";
 import AboutSection from "./AboutSection";
+import SkillsSection from "./SkillsSection";
 
 function Home() {
   return (
@@ -19,8 +20,9 @@ function Home() {
 
       {/* Main Content */}
       <main>
-        <HeroSection />
-        <AboutSection />
+        <HeroSection/>
+        <AboutSection/>
+        <SkillsSection/>
       </main>
 
       {/* Footer */}

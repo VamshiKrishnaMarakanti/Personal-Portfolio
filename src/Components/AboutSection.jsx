@@ -42,8 +42,11 @@ function AboutSection() {
                   <Code className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
-                <h4 className="font-semibold text-lg">Web Development</h4>
-                <p className="text-muted-foreground">Creating responsive websites and web applications with modern frameworks</p>
+                  <h4 className="font-semibold text-lg">Web Development</h4>
+                  <p className="text-muted-foreground">
+                    Creating responsive websites and web applications with
+                    modern frameworks
+                  </p>
                 </div>
               </div>
             </div>
@@ -51,11 +54,13 @@ function AboutSection() {
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
                   <User className="h-6 w-6 text-primary" />
-                  
                 </div>
                 <div className="text-left">
-                <h4 className="font-semibold text-lg">UI/UX Design</h4>
-                <p className="text-muted-foreground">Designing intutive user interfaces and seamless user experiences</p>
+                  <h4 className="font-semibold text-lg">UI/UX Design</h4>
+                  <p className="text-muted-foreground">
+                    Designing intutive user interfaces and seamless user
+                    experiences
+                  </p>
                 </div>
               </div>{" "}
             </div>
@@ -65,8 +70,11 @@ function AboutSection() {
                   <Briefcase className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
-                <h4 className="font-semibold text-lg">Project Management</h4>
-                <p className="text-muted-foreground">Leading projects from conception to completion with agile methodologies</p>
+                  <h4 className="font-semibold text-lg">Project Management</h4>
+                  <p className="text-muted-foreground">
+                    Leading projects from conception to completion with agile
+                    methodologies
+                  </p>
                 </div>
               </div>
             </div>
