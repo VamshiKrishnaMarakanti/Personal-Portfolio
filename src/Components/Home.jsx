@@ -5,6 +5,7 @@ import NavBar from "./NavBar";
 import HeroSection from "./HeroSection";
 import AboutSection from "./AboutSection";
 import SkillsSection from "./SkillsSection";
+import ProjectSection from "./ProjectSection";
 
 function Home() {
   return (
@@ -23,6 +24,7 @@ function Home() {
         <HeroSection/>
         <AboutSection/>
         <SkillsSection/>
+        <ProjectSection/>
       </main>
 
       {/* Footer */}
