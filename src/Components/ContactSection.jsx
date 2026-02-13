@@ -1,21 +1,37 @@
 import { Instagram, Linkedin, Mail, Map, Phone, Send, Twitch} from "lucide-react";
-import {useState} from "react";
+import {useState,useRef} from "react";
 import { cn } from "@/lib/utils";
 import { useToast } from "../hooks/use-toast";
+import emailjs from '@emailjs/browser';
 
 function ContactSection() {
-
+  const form = useRef();
   const {toast}=useToast();
   const [isSubmitting,setIsSubmitting]=useState(false); 
   const handleSubmit=(e)=> {
     e.preventDefault();  
 setIsSubmitting(true);
-    setTimeout(()=> {
-      toast({
+emailjs
+      .sendForm('service_nopq3ow', 'PersonalPortfolioTemp', form.current, {
+        publicKey: 'rW4L_0zSLRHuWG13u',
+      })
+      .then(
+        () => {
+              toast({
         title:"Message Sent",
         description:"Your message has been sent successfully. I'll get back to you soon.",
+      });
+      form.current.reset();
+      setIsSubmitting(false);
+        },
+        (error) => {
+             toast({
+        title:"Request Failed",
+        description:"Sorry for the inconvenience. Please try again later.",
       });setIsSubmitting(false);
-    },1500);
+        },
+      );
+
   }
   return (
     <section id="Contact" className="py-24 px-4 relative bg-secondary/30">
@@ -38,7 +54,7 @@ setIsSubmitting(true);
                   <Mail className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="fonr-medium">Email</h4>
+                  <h4 className="font-medium">Email</h4>
                   <a
                     href="mailto:vamshikrishnamarakanti@gmail.com"
                     className="text-muted-foreground hover:text-primary transition-colors"
@@ -55,7 +71,7 @@ setIsSubmitting(true);
                   <Phone className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="fonr-medium">Phone</h4>
+                  <h4 className="font-medium">Phone</h4>
                   <a
                     href="tel:+91 7330173977"
                     className="text-muted-foreground hover:text-primary transition-colors"
@@ -72,7 +88,7 @@ setIsSubmitting(true);
                   <Map className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="fonr-medium">Location</h4>
+                  <h4 className="font-medium">Location</h4>
                   <a className="text-muted-foreground hover:text-primary transition-colors">
                     Hyderabad, Telangana
                   </a>
@@ -83,7 +99,7 @@ setIsSubmitting(true);
             <div className="pt-8">
                 <h4 className="font-medium mb-4">Connect With Me</h4>
     <div className="flex space-x-4 justify-center">
-        <a href="#" target="_blank">
+        <a href="https://www.linkedin.com/in/vamshi-krishna-5016a11b2/" target="_blank">
             <Linkedin/>
         </a>
         <a href="#" target="_blank">
@@ -95,13 +111,13 @@ setIsSubmitting(true);
     </div>
             </div>
           </div>
-          <div className="bg-card p-8 rounded-lg shadow-xs" onSubmit={handleSubmit}>
+          <div className="bg-card p-8 rounded-lg shadow-xs" >
             <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
 
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit} ref={form}>
                 <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">Your Name</label>
-                    <input type="text" id="name" name="text" required className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary" placeholder="Vamshi Krishna"/>
+                    <input type="text" id="name" name="name" required className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary" placeholder="Vamshi Krishna"/>
 
                 </div>
                  <div>
