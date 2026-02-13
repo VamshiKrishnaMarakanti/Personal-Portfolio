@@ -1,12 +1,12 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import React from "react";
+ 
 const projects = [
   {
     id: 1,
     title: "DSATracker",
     description: "DSA Learning and leran tracker",
-    image:
-      "V:Vamshi_CareerUIDevStudiespersonalPortfoliopublicProjectsDSATracker.jpg",
+    image: "/Projects/DSATracker.jpg",
     tags: ["React", "TailwindCSS"],
     demoUrl: "#",
     githubUrl: "#",
@@ -15,7 +15,7 @@ const projects = [
     id: 2,
     title: "Kanban Board",
     description: "A Kanban board to track daily to-do list",
-    image: "/projects/KanbanBoard.jpg",
+    image: "/Projects/KanbanBoard.jpg",
     tags: ["React", "TailwindCSS"],
     demoUrl: "#",
     githubUrl: "#",
@@ -23,8 +23,8 @@ const projects = [
   {
     id: 3,
     title: "Our Store",
-    description: "A ecommerce website",
-    image: "/projects/OurStore.jpg",
+    description: "A ecommerce website", 
+    image: "/Projects/OurStore.jpg",
     tags: ["React", "TailwindCSS"],
     demoUrl: "#",
     githubUrl: "#",
@@ -47,6 +47,7 @@ function ProjectSection() {
             <div className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover">
               <div className="h-48 overflow-hidden">
                 <img
+                key={project.id}
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"

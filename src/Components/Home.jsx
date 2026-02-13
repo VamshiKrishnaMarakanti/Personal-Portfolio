@@ -6,6 +6,7 @@ import HeroSection from "./HeroSection";
 import AboutSection from "./AboutSection";
 import SkillsSection from "./SkillsSection";
 import ProjectSection from "./ProjectSection";
+import ContactSection from "./ContactSection";
 
 function Home() {
   return (
@@ -25,6 +26,7 @@ function Home() {
         <AboutSection/>
         <SkillsSection/>
         <ProjectSection/>
+        <ContactSection/>
       </main>
 
       {/* Footer */}
