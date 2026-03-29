@@ -1,13 +1,21 @@
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { X, Menu } from "lucide-react";
+import {
+  X,
+  Menu,
+  FolderOpenDot,
+  User,
+  Code,
+  GraduationCap,
+  UserRoundPen,
+} from "lucide-react";
 
 const NavItems = [
-  { name: "Home", href: "#Hero" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#Contact" },
+  { name: "About", href: "#about", icon: User },
+  { name: "Skills", href: "#skills", icon: Code },
+  { name: "Projects", href: "#projects", icon: FolderOpenDot },
+  { name: "Contact", href: "#Contact", icon: UserRoundPen },
+  { name: "Education", href: "#education", icon: GraduationCap },
 ];
 
 function NavBar() {
@@ -26,31 +34,42 @@ function NavBar() {
   return (
     <nav
       className={cn(
-        "fixed w-full z-40 transition-all duration-300 ",
-        isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
+        "fixed w-full z-40 transition-all duration-300",
+        isScrolled
+          ? "py-3 bg-background/80 backdrop-blur-md shadow-xs"
+          : "py-5",
       )}
     >
       <div className="container flex items-center justify-between">
-        <a
-          href="#hero"
-          className="text-xl font-bold text-primary flex items-center"
-        >
-          <span className="relative z-10">
-            <span className="text-glow text-foreground">Vamshi</span> PortFolio
-          </span>
-        </a>
+        {/* Title Left */}
+        <div className="flex-1 flex items-center justify-start">
+          <a
+            href="#Hero"
+            className="text-xl font-bold text-primary flex items-center"
+          >
+            <span className="relative z-10">
+              <span className="text-glow text-foreground">Vamshi</span> PortFolio
+            </span>
+          </a>
+        </div>
 
-        {/* Desktop Version */}
-        <div className="hidden md:flex space-x-8">
+        {/* Icons Center */}
+        <div className="flex-1 hidden md:flex items-center justify-center space-x-8 bg-background p-5 rounded-full">
           {NavItems.map((item, key) => (
             <a
               key={key}
               href={item.href}
-              className="text-foreground/80 hover:text-primary transition-colors duration-300"
+              className="text-foreground/80 hover:text-primary transition-colors duration-300 flex flex-col items-center"
             >
-              {item.name}
+              <span>{item.name}</span>
+              {item.icon && <item.icon className="mt-1" size={18} />}
             </a>
           ))}
+        </div>
+
+        {/* Theme Toggle Right (placeholder for now) */}
+        <div className="flex-1 flex items-center justify-end">
+          {/* Place your ThemeToggle component here, e.g. <ThemeToggle /> */}
         </div>
 
         {/* Mobile Version */}
@@ -70,7 +89,7 @@ function NavBar() {
             "transition-all duration-300 md:hidden",
             isMenuOpen
               ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
+              : "opacity-0 pointer-events-none",
           )}
         >
           <div className="flex flex-col space-y-8">
@@ -78,10 +97,11 @@ function NavBar() {
               <a
                 key={key}
                 href={item.href}
-                className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                className="text-foreground/80 hover:text-primary transition-colors duration-300 flex flex-col items-center"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {item.name}
+                <span>{item.name}</span>
+                {item.icon && <item.icon className="mt-1" size={18} />}
               </a>
             ))}
           </div>

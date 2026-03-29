@@ -1,38 +1,48 @@
-import { Instagram, Linkedin, Mail, Map, Phone, Send, Twitch} from "lucide-react";
-import {useState,useRef} from "react";
+import {
+  Instagram,
+  Linkedin,
+  Mail,
+  Map,
+  Phone,
+  Send,
+  Twitch,
+  MessageCircleMore as Whatsapp,
+} from "lucide-react";
+import { useState, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { useToast } from "../hooks/use-toast";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
 
 function ContactSection() {
   const form = useRef();
-  const {toast}=useToast();
-  const [isSubmitting,setIsSubmitting]=useState(false); 
-  const handleSubmit=(e)=> {
-    e.preventDefault();  
-setIsSubmitting(true);
-emailjs
-      .sendForm('service_nopq3ow', 'PersonalPortfolioTemp', form.current, {
-        publicKey: 'rW4L_0zSLRHuWG13u',
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    emailjs
+      .sendForm("service_nopq3ow", "PersonalPortfolioTemp", form.current, {
+        publicKey: "rW4L_0zSLRHuWG13u",
       })
       .then(
         () => {
-              toast({
-        title:"Message Sent",
-        description:"Your message has been sent successfully. I'll get back to you soon.",
-      });
-      form.current.reset();
-      setIsSubmitting(false);
+          toast({
+            title: "Message Sent",
+            description:
+              "Your message has been sent successfully. I'll get back to you soon.",
+          });
+          form.current.reset();
+          setIsSubmitting(false);
         },
         (error) => {
-             toast({
-        title:"Request Failed",
-        description:"Sorry for the inconvenience. Please try again later.",
-      });setIsSubmitting(false);
+          toast({
+            title: "Request Failed",
+            description: "Sorry for the inconvenience. Please try again later.",
+          });
+          setIsSubmitting(false);
         },
       );
-
-  }
+  };
   return (
     <section id="Contact" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
@@ -95,45 +105,98 @@ emailjs
                 </div>
               </div>
             </div>
-
+            <div className="flex">
             <div className="pt-8">
-                <h4 className="font-medium mb-4">Connect With Me</h4>
-    <div className="flex space-x-4 justify-center">
-        <a href="https://www.linkedin.com/in/vamshi-krishna-5016a11b2/" target="_blank">
-            <Linkedin/>
-        </a>
-        <a href="#" target="_blank">
-            <Instagram/>
-        </a>
-        <a href="#" target="_blank">
-            <Twitch/>
-        </a>
-    </div>
+              <h4 className="font-medium mb-4">Connect With Me</h4>
+              <div className="flex space-x-4 justify-center">
+                <a
+                  href="https://www.linkedin.com/in/vamshi-krishna-5016a11b2/"
+                  target="_blank"
+                >
+                  <Linkedin />
+                </a>
+                <a href="https://www.instagram.com/vamshi_marakanti/" target="_blank">
+                  <Instagram />
+                </a>
+                <a href="https://wa.me/917330173977?text=Hello I would like to talk with you" target="_blank">
+                  <Whatsapp />
+                </a>
+               
+              </div>
+
+              
             </div>
+
+            <div className="pt-15 flex ml-20"> <a
+                  href="Vamshi_Krishna_React_Developer_Resume.pdf"
+                  target="_blank"
+                  className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 trasition-colors duration-300"
+                >
+                  Download CV
+                </a></div>
           </div>
-          <div className="bg-card p-8 rounded-lg shadow-xs" >
+          </div>
+          <div className="bg-card p-8 rounded-lg shadow-xs">
             <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
 
             <form className="space-y-6" onSubmit={handleSubmit} ref={form}>
-                <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">Your Name</label>
-                    <input type="text" id="name" name="name" required className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary" placeholder="Vamshi Krishna"/>
-
-                </div>
-                 <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">Your Email</label>
-                    <input type="email" id="email" name="email" required className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary" placeholder="Abc@gmail.com"/>
-
-                </div>
-                 <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-2">Your Message</label>
-                    <textarea id="message" name='message' required className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary" placeholder="Hello, I'd like to talk to you"/>
-
-                </div>
-                <button type="submit" className=  {cn("cosmic-button w-full flex items-center justify-center gap-2",)}>{isSubmitting? "Sending..":"Send Message"}<Send size={16}/></button>
-
+              <div>
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium mb-2"
+                >
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
+                  placeholder="Vamshi Krishna"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium mb-2"
+                >
+                  Your Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
+                  placeholder="Abc@gmail.com"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium mb-2"
+                >
+                  Your Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
+                  placeholder="Hello, I'd like to talk to you"
+                />
+              </div>
+              <button
+                type="submit"
+                className={cn(
+                  "cosmic-button w-full flex items-center justify-center gap-2",
+                )}
+              >
+                {isSubmitting ? "Sending.." : "Send Message"}
+                <Send size={16} />
+              </button>
             </form>
-
           </div>
         </div>
       </div>
