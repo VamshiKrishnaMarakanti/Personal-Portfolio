@@ -8,6 +8,7 @@ import SkillsSection from "./SkillsSection";
 import ProjectSection from "./ProjectSection";
 import ContactSection from "./ContactSection";
 import Education from "./Education";
+import Experience from "./Experience";
 
 function Home() {
   return (
@@ -29,6 +30,7 @@ function Home() {
         <ProjectSection/>
         <ContactSection/>
         <Education/>
+        <Experience/>
       </main>
 
       {/* Footer */}

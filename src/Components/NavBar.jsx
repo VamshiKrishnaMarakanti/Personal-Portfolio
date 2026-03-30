@@ -41,35 +41,27 @@ function NavBar() {
       )}
     >
       <div className="container flex items-center justify-between">
-        {/* Title Left */}
-        <div className="flex-1 flex items-center justify-start">
-          <a
-            href="#Hero"
-            className="text-xl font-bold text-primary flex items-center"
-          >
-            <span className="relative z-10">
-              <span className="text-glow text-foreground">Vamshi</span> PortFolio
-            </span>
-          </a>
-        </div>
+        <a
+          href="#Hero"
+          className="text-xl font-bold text-primary flex items-center"
+        >
+          <span className="relative z-10">
+            <span className="text-glow text-foreground">Vamshi</span> PortFolio
+          </span>
+        </a>
 
-        {/* Icons Center */}
-        <div className="flex-1 hidden md:flex items-center justify-center space-x-8 bg-background p-5 rounded-full">
+        {/* Desktop Version */}
+        <div className="hidden md:flex space-x-8 bg-background p-5 rounded-full">
           {NavItems.map((item, key) => (
             <a
               key={key}
               href={item.href}
-              className="text-foreground/80 hover:text-primary transition-colors duration-300 flex flex-col items-center"
+              className="text-foreground/80 hover:text-primary transition-colors duration-300 "
             >
-              <span>{item.name}</span>
-              {item.icon && <item.icon className="mt-1" size={18} />}
+              {item.name}
+              {<item.icon size={18} />}
             </a>
           ))}
-        </div>
-
-        {/* Theme Toggle Right (placeholder for now) */}
-        <div className="flex-1 flex items-center justify-end">
-          {/* Place your ThemeToggle component here, e.g. <ThemeToggle /> */}
         </div>
 
         {/* Mobile Version */}
@@ -97,11 +89,11 @@ function NavBar() {
               <a
                 key={key}
                 href={item.href}
-                className="text-foreground/80 hover:text-primary transition-colors duration-300 flex flex-col items-center"
+                className="text-foreground/80 hover:text-primary transition-colors duration-300"
                 onClick={() => setIsMenuOpen(false)}
               >
-                <span>{item.name}</span>
-                {item.icon && <item.icon className="mt-1" size={18} />}
+                {/* {item.name} */}
+                {<item.icon size={18} />}
               </a>
             ))}
           </div>
