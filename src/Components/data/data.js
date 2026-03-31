@@ -59,7 +59,7 @@ export const experience = [
     company: "Tata Consultancy Services  ·  Hyderabad, India",
     location: "Riyadh, Saudi Arabia",
     isActive: false,
-    isOnsite: true,
+    isOnsite: false,
     project: "Saudi Telecom Company (STC) – Digital Experience Systems",
     bullets: [
       "Built modern, scalable web apps using React.js",
